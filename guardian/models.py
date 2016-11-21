@@ -41,7 +41,8 @@ class BaseObjectPermission(models.Model):
 
 class BaseGenericObjectPermission(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_pk = models.CharField(_('object ID'), max_length=255)
+    #object_pk = models.CharField(_('object ID'), max_length=255)
+    object_pk = models.PositiveIntegerField()
     content_object = GenericForeignKey(fk_field='object_pk')
 
     class Meta:
